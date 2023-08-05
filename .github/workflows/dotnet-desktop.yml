@@ -64,7 +64,7 @@ jobs:
             run: msbuild /p:Configuration=Release
 
           - name: Pack
-            ruin: Compress-Archive -Path * -DestinationPath ..\..\..\iex.zip
+            run: Compress-Archive -Path * -DestinationPath ..\..\..\iex.zip
             working-directory: bin\Release\net7.0-windows
 
             # CREATE ARTIFACTS
