@@ -34,7 +34,7 @@ jobs:
             # CREATE RELEASE AND UPLOAD EXECUTABLE FILE
           - name: Create a release and publish attachments.
             run: |
-                .\r-gh-create-release --file gh-release-strategy-example-1.exe
+                .\r-gh-create-release --file iex.exe
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             # DELETE ARTIFACTS
@@ -51,12 +51,15 @@ jobs:
             uses: actions/checkout@v3
             with:
                 fetch-depth: 1
+            # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+          - name: Setup MSBuild.exe
+            uses: microsoft/setup-msbuild@v1.0.2
             # BUILD APPLICATION FOR WINDOWS
           - name: Create the app package
-            run: cargo.exe build --release
+            run: msbuild /p:Configuration=Release
             # CREATE ARTIFACTS
           - name: Create Release
             uses: actions/upload-artifact@v3
             with:
                 name: my-temporary-artifacts
-                path: target\release\gh-release-strategy-example-1.exe
+                path: bin\Release\net7.0-windows\iex.exe
