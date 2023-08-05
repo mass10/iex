@@ -35,7 +35,7 @@ jobs:
           - name: Create a release and publish attachments.
             run: |
                 DIR /S /B
-                .\r-gh-create-release --file iex.exe
+                .\r-gh-create-release --file iex.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             # DELETE ARTIFACTS
@@ -63,9 +63,14 @@ jobs:
           - name: Create the app package
             run: msbuild /p:Configuration=Release
 
+          - name: Pack
+            ruin: Compress-Archive -Path * -DestinationPath ..\..\..\iex.zip
+            working-directory: bin\Release\net7.0-windows
+
             # CREATE ARTIFACTS
           - name: Create Release
             uses: actions/upload-artifact@v3
             with:
                 name: artifacts-3c9f9448-a4e1-4b41-ba5f-38366147e211
-                path: bin\Release\net7.0-windows\*
+                # path: bin\Release\net7.0-windows\*
+                path: iex.zip
