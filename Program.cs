@@ -1,11 +1,11 @@
-using System.Runtime.InteropServices;
+ï»¿using System.Runtime.InteropServices;
 
 namespace iex
 {
 	internal static class Program
 	{
 		/// <summary>
-		/// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg‚Å‚·B
+		/// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚
 		/// </summary>
 		[STAThread]
 		static void Main(string[] args)
@@ -90,14 +90,14 @@ namespace iex
 
 		private static void LaunchInternetExplorer(string url)
 		{
-			// Internet Explorer ƒIƒuƒWƒFƒNƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬
+			// Internet Explorer ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆ
 			var unknown = CreateObject("InternetExplorer.Application");
 			if (unknown == null)
 			{
 				return;
 			}
 
-			// Visible ‚ğ true ‚É‚·‚é‚Ü‚ÅƒEƒBƒ“ƒhƒE‚ªŒ©‚¦‚Ü‚¹‚ñB
+			// Visible ã‚’ true ã«ã™ã‚‹ã¾ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒè¦‹ãˆã¾ã›ã‚“ã€‚
 			if (!GetPropertyAsBoolean(unknown, "Visible"))
 			{
 				SetPropertyAsBoolean(unknown, "Visible", true);
@@ -108,7 +108,7 @@ namespace iex
 				return;
 			}
 
-			// URL ‚ğŠJ‚«‚Ü‚·B
+			// URL ã‚’é–‹ãã¾ã™ã€‚
 			InvokeMethod(unknown, "Navigate", url);
 		}
 	}
