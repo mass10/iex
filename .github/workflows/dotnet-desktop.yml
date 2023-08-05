@@ -1,4 +1,4 @@
-name: Create release to make .exe published.
+name: パッケージを GitHub で公開する
 
 on:
     push:
@@ -34,7 +34,6 @@ jobs:
             # CREATE RELEASE AND UPLOAD EXECUTABLE FILE
           - name: Create a release and publish attachments.
             run: |
-                DIR /S /B
                 .\r-gh-create-release --file iex.zip
             env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
