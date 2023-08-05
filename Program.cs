@@ -2,6 +2,9 @@
 
 namespace iex
 {
+	/// <summary>
+	/// Application class.
+	/// </summary>
 	internal static class Program
 	{
 		/// <summary>
