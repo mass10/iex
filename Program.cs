@@ -1,17 +1,14 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace iex
 {
-	/// <summary>
-	/// Application class.
-	/// </summary>
-	internal static class Program
+	internal class Program
 	{
-		/// <summary>
-		/// Entrypoint of application.
-		/// </summary>
-		/// <param name="args">Command line arguments</param>
-		[STAThread]
 		static void Main(string[] args)
 		{
 			try
