@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +14,7 @@ namespace iex
 		/// <summary>
 		/// Instance of COM object.
 		/// </summary>
-		private object? unknown = null;
+		private object unknown = null;
 
 		/// <summary>
 		/// Constructor. 
@@ -33,7 +32,7 @@ namespace iex
 		public bool CreateObject(string progID)
 		{
 			this.unknown = null;
-			Type? t = Type.GetTypeFromProgID(progID);
+			Type t = Type.GetTypeFromProgID(progID);
 			if (t == null)
 			{
 				return false;
@@ -96,7 +95,7 @@ namespace iex
 		/// </summary>
 		/// <param name="unknown"></param>
 		/// <returns></returns>
-		private static bool ParseBool(object? unknown)
+		private static bool ParseBool(object unknown)
 		{
 			if (unknown == null)
 				return false;
