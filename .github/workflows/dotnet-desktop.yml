@@ -71,4 +71,4 @@ jobs:
             uses: actions/upload-artifact@v3
             with:
                 name: artifacts-3c9f9448-a4e1-4b41-ba5f-38366147e211
-                path: bin\Release\*
+                path: iex.zip
