@@ -64,12 +64,11 @@ jobs:
 
           - name: Pack
             run: Compress-Archive -Path * -DestinationPath ..\..\..\iex.zip
-            working-directory: bin\Release\net7.0-windows
+            working-directory: bin\Release\
 
             # CREATE ARTIFACTS
           - name: Create Release
             uses: actions/upload-artifact@v3
             with:
                 name: artifacts-3c9f9448-a4e1-4b41-ba5f-38366147e211
-                # path: bin\Release\net7.0-windows\*
-                path: iex.zip
+                path: bin\Release\*
