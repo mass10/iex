@@ -9,19 +9,16 @@ namespace iex
 {
 	internal class Program
 	{
+		/// <summary>
+		/// アプリケーションのエントリーポイント
+		/// </summary>
+		/// <param name="args">コマンドライン引数</param>
 		static void Main(string[] args)
 		{
 			try
 			{
-				if (args.Length > 0)
-				{
-					var url = args[0];
-					LaunchInternetExplorer(url);
-				}
-				else
-				{
-					LaunchInternetExplorer("");
-				}
+				var url = 0 < args.Length ? args[0] : "";
+				LaunchInternetExplorer(url);
 			}
 			catch (Exception e)
 			{
@@ -48,13 +45,11 @@ namespace iex
 				ie.SetPropertyAsBoolean("Visible", true);
 			}
 
-			if (string.IsNullOrEmpty(url))
-			{
-				return;
-			}
-
 			// Navigate to URL.
-			ie.InvokeMethod("Navigate", url);
+			if (url != "")
+			{
+				ie.InvokeMethod("Navigate", url);
+			}
 		}
 	}
 }
