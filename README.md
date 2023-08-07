@@ -8,3 +8,6 @@
 * Execute iex.exe
 
 ![image](https://github.com/mass10/iex/assets/2055840/d7faf7da-91b2-4816-9269-e3c22abe1664)
+
+# seealso
+* [C++/COM Version](https://github.com/mass10/iex2/)
