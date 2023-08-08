@@ -50,9 +50,11 @@ namespace iex
 		{
 			if (this.unknown == null)
 				return false;
+
 			var t = this.unknown.GetType();
-			var property = t.InvokeMember(name, System.Reflection.BindingFlags.GetProperty, null, this.unknown, null);
-			return ParseBool(property);
+			var result = t.InvokeMember(
+				name, System.Reflection.BindingFlags.GetProperty, null, this.unknown, null);
+			return ParseBool(result);
 		}
 
 		/// <summary>
@@ -65,8 +67,10 @@ namespace iex
 		{
 			if (this.unknown == null)
 				return false;
+
 			var t = this.unknown.GetType();
-			var result = t.InvokeMember(name, System.Reflection.BindingFlags.SetProperty, null, this.unknown, new object[] { value });
+			var result = t.InvokeMember(
+				name, System.Reflection.BindingFlags.SetProperty, null, this.unknown, new object[] { value });
 			return ParseBool(result);
 		}
 
@@ -80,13 +84,10 @@ namespace iex
 		{
 			if (this.unknown == null)
 				return false;
+
 			var t = this.unknown.GetType();
 			var result = t.InvokeMember(
-				name,
-				System.Reflection.BindingFlags.InvokeMethod,
-				null,
-				this.unknown,
-				new object[] { value });
+				name, System.Reflection.BindingFlags.InvokeMethod, null, this.unknown, new object[] { value });
 			return ParseBool(result);
 		}
 
